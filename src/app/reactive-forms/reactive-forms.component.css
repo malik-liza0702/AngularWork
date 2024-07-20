@@ -1,0 +1,21 @@
+.tableData{
+    width:17rem;
+    text-align:center;
+    padding:5px;
+    font-size:1.75rem;
+}
+table{
+    margin-top: 2rem;
+    border:1px solid black;
+    
+
+}
+th,td{
+    border-right: 1px solid black;
+}
+.tableheading{
+    border-bottom: 1px solid black;
+}
+.description{
+    width:20rem;
+}

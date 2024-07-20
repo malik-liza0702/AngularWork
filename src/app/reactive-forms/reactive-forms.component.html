@@ -1,0 +1,66 @@
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-12">
+            <textarea [(ngModel)]="taskObj.taskName" id="" class="form-control" cols="3" placeholder="Add a New Task"></textarea>
+        </div>
+    </div>
+    <div class="row pt-2 mt-3">
+        <div class="col-3">
+            <input type="date" [(ngModel)]="taskObj.dueDate" class="form-control" id="" placeholder="Due Date">
+        </div>
+        <div class="col-7">
+            <input type="text"[(ngModel)]="taskObj.tags" class="form-control" id="" placeholder="Enter Comma Seperated tags">
+        </div>
+        <div class="col-2 mt-3">
+            <div class="d-grid">
+                <button class="btn btn-success btn-block" (click)="createNewTask()">Add Task</button>
+            </div> 
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-12">
+            <button class="btn"
+            [ngClass]="filterType=='tags'?'btn-primary':'btn-secondary'"
+            (click)="setFilter('tags')"
+            >Filter by tags</button>
+            <button class="btn"
+            (click)="setFilter('showAll')"
+            [ngClass]="filterType=='showAll'?'btn-primary':'btn-secondary'"
+            >Show All</button>
+            <button class="btn btn-secondary"
+            [ngClass]="filterType=='showCompleted'?'btn-primary':'btn-secondary'"
+            (click)="setFilter('showCompleted')">Show Completed</button>
+        </div> 
+    </div>
+    <div class="row pt-2" >
+        <div class="col-12">
+            <button class="btn btn-primary btn-sm"
+            [ngClass]="selectedTag==tag?'btn-danger':'btn-warning'"
+            (click)="filterTag(tag)" *ngFor="let tag of tagsList">{{tag}}</button>       
+        </div> 
+    </div>
+    <div>
+        <table>
+            <tr class="tableheading">
+                <th class="tableData">SerialNo.</th>
+                <th class="tableData">Check Status</th>
+                <th class="tableData"></th>
+                <th class="tableData">Task Description</th>
+                <th class="tableData">Due Date</th>
+                <th class="tableData">Tags</th>
+            </tr>
+            <tr  *ngFor="let task of taskList;let i=index">
+                <td class="tableData">{{i+1}}</td>
+                <td><input type="checkbox" class="tableData"(change)="onComplete()" [(ngModel)]="task.isCompleted"></td>
+                <td class="tableData"><button class="btn"(click)="onRemove(i)">Delete</button></td>
+                <td class="tableData description">{{task.taskName}}</td>
+                <td class="tableData">{{task.dueDate}}</td>
+                <!-- <td class="tableData">{{task.tags}}</td> -->
+                <td class="tableData"><button class="btn" *ngFor="let tag of getArray(task.tags)">{{tag}}</button></td>
+                
+            </tr>
+        </table>
+    </div>
+  
+</div>

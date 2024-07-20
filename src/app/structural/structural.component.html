@@ -1,0 +1,36 @@
+<div class="content">
+    <div >
+        <div class="one" *ngIf="isVisible">
+            <p>Heading1</p>
+        </div>
+        <div>
+            <button (click)="hideDiv()">Hide</button>
+            <button (click)="showDiv()">Show</button>
+        </div>    
+    </div>
+    <div >
+        <div class="two" *ngIf="isToggle"><p>Heading2</p></div>
+        <div><button (click)="toggle()">Toggle</button></div>
+    </div>
+    <div>
+        <div class="three" *ngIf="selectedValue=='Mumbai'"><p>Heading3</p></div>
+        <div>
+            <select [(ngModel)]="selectedValue">
+                <option>Delhi</option>
+                <option >Mumbai</option>
+                <option>Pune</option>
+            </select>
+        </div>    
+    </div>
+    <div>
+        <div class="four" *ngIf="string1==string2">
+            <p>Heading4</p>
+            {{string1}} and
+            {{string2}} both are equal.
+        </div>
+        <div>
+            <input text="text" [(ngModel)]="string1">
+            <input text="text"[(ngModel)]="string2" >
+        </div>    
+    </div>
+</div>

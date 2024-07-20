@@ -1,0 +1,35 @@
+<p>switch works!</p>
+<div>
+    <div>
+        <input type="text" [(ngModel)]="string1">
+    </div>
+    <div>
+        Day entered is:
+        @switch(string1){
+            @case('1'){
+                <span>Monday</span>
+            }
+            @case('2'){
+                <span>Tuesday</span>
+            }
+            @case('3'){
+                <span>Wednesday</span>
+            }
+            @case('4'){
+                <span>Thursday</span>
+            }
+            @case('5'){
+                <span>Firday</span>
+            }
+            @case('6'){
+                <span>Saturday</span>
+            }
+            @case('7'){
+                <span>Sunday</span>
+            }
+            @default {
+                <span>Not a week day</span>
+            }
+        }
+    </div>
+</div>

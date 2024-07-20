@@ -1,0 +1,61 @@
+<p>template-driven works!</p>
+<div class="main">
+    <form class="content" #form="ngForm">
+        <div>
+            <label>First Name</label>
+            <input type="text" name="firstname" [(ngModel)]="student.firstname" #fname="ngModel" required minlength="3">
+            <div class="text-danger">
+                @if(fname.touched && fname.errors?.['required']){
+                    <span>This is required</span>    
+                }
+                @else if(fname.touched && fname.errors?.['minlength']){
+                    <span>Min 3characters</span> 
+
+                }
+            </div>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" name="lastname"[(ngModel)]="student.lastname">
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email"[(ngModel)]="student.email" required #mail="ngModel">
+            <div class="text-danger">
+                @if(mail.touched && mail.errors?.['required']){
+                    <span>This field is required</span>
+                }
+            </div>
+            
+        </div>
+        <div>
+            <label>checkit:</label>
+            <input type="Checkbox" name="check"[(ngModel)]="student.check">
+        </div>
+        <div>
+            <label>Select City</label>
+            <select>
+                <option>Mumbai</option>
+                <option>New Delhi</option>
+                <option>Kolkata</option>
+            </select>
+            
+        </div>
+        <div>
+            <button [disabled]="form.invalid" (click)="onSubmit()">Submit</button>
+            <button (click)="resetForm()">Reset Form</button>
+        </div>
+        <!-- <div>
+            {formValue | json}
+        </div> -->
+        
+    </form>
+</div>
+
+<!-- ngForm for applying validations on the whole form -->
+<!-- form is considered as invalid if any of the applied validation is false -->
+<!-- for applying validations on form we use form.invalid and ngForm is given to the #form argumnent
+ i.e
+ #form="ngForm"
+ applied on the complete form -->
+ <!-- until the applied validations are complete form.invalid value remains as true ie. form is considered as invalid -->

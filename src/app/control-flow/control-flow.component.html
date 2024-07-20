@@ -1,0 +1,61 @@
+<p>control-flow works!</p>
+<div class="container">
+    <div class="content-1">
+        <div>
+            @if(isVisible){
+                <div class="one">Heading1</div>
+            }
+            <div class="btn">
+                <button (click)="hide()">Hide</button>
+                <button (click)="show()">Show</button>
+            </div>
+        </div>
+        <div>
+            @if(isToggle){
+                <div class="two">Heading2</div>
+            }
+            @else {
+                <div class="warning">Warning</div>
+            }            
+            <div class="btn">
+                <button (click)="toggle()">Toggle</button>               
+            </div>
+        </div>
+        <div>
+            @if(string1==string2){
+                <div class="equality">Both are equal</div>
+            }
+            @else {
+                <div class="warning">Both are unequal</div>
+            }
+            <div>
+                <input type="text" [(ngModel)]="string1">
+                <input type="text" [(ngModel)]="string2">
+            </div>
+        </div>
+        <div>
+            @if(selectedString=="Other"){
+                <div class="selected">No city is selected</div>
+            }
+            @else if (selectedString=="Mumbai") {
+                <div class="selected">--India won the match!!!</div>
+
+            }
+            @else {
+                <div class="selected">Other city is selected</div>
+
+            }
+            <div>
+                <select [(ngModel)]="selectedString">
+                    <option value="">Select State</option>
+                    <option>Other</option>
+                    <option>Delhi</option>
+                    <option>Mumbai</option>
+                    <option>Kolata</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="heading"><p>Using *ngFor structural directive</p></div>
+    <div class="card-container">
+        <div class="cards" *ngFor=" let list of listings">
+            <div class="card">
+                <div class="image-container">
+                    <img [src]="list.url" alt="listing">
+                </div>
+                <div class="card-data">
+                    <p class="data">{{list.title}}</p>
+                    <p class="data">{{list.location}}, {{list.country}}</p>
+                    
+                    <p>{{list.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>    

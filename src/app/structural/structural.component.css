@@ -1,0 +1,32 @@
+.content{
+    display:flex;
+}
+.one{
+    background-color:red;
+    width:150px;
+    height:150px;
+    margin:20px;
+    
+}
+.two{
+    background-color: aqua;
+    width:150px;
+    height:150px;
+    margin:20px;
+
+}
+.three{
+    background-color: blueviolet;
+    width:150px;
+    height:150px;
+    margin:20px;
+
+}
+.four{
+    background-color: black;
+    color:white;
+    width:150px;
+    height:150px;
+    margin:20px;
+
+}
